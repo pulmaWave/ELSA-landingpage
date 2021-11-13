@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      ELSA Speak | Ứng dụng học tiếng Anh | Website chính thức tại Việt Nam
+    </title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- header section start -->
+
+    <header class="header">
+      <div class="page-header">
+        <a href="javascript:void(0)" id="logo-header-elsa-tag">
+          <img src="./images/logo.svg" alt="ELSA Speak" />
+        </a>
+      </div>
+    </header>
+
+    <!-- header section end -->
+
+    <!-- section1 welcome section start -->
+
+    <section id="section1" class="section1">
+      <div class="content">
+        <h2 class="title">
+          app luyện nói<br />
+          và giao tiếp tiếng anh thời 4.0
+        </h2>
+        <h3 class="sub-title">
+          Với ELSA Speak - Ai Cũng Có Thể Nói Tiếng Anh Hay!
+        </h3>
+        <a href="#section2">
+          <button class="button-register-sc1">Đăng ký ngay</button></a
+        >
+      </div>
+      <div class="img-mobilehand">
+        <img src="./images/mobileapp.png" alt="mobile-app" style="display: flex;"/>
+      </div>
+    </section>
+
+    <!-- section1 welcome section end -->
+
+    <!-- section2 register section start -->
+
+    <section id="section2" class="section2">
+      <div class="background-wrap">
+        <picture>
+          <source media="(min-width:920px)" srcset="./images/backgr-section2.png" />
+          <img
+            class="img-app"
+            src="images/backgr2-sc2.png"
+            alt="background-image"
+          />
+        </picture>
+      </div>
+      <div class="wrapper-sc2">
+        <div class="container2">
+          <div class="form">
+            <div class="title">cùng ứng dụng elsa nói tiếng anh "thả ga"</div>
+            <div class="container">
+              <div class="content">
+                <form action="javascript:void(0)">
+                  <div class="user-details">
+                    <div class="input-box">
+                      <div class="label-input">
+                        <img src="./images/people.svg" alt="people svg" />
+                        <span class="details">Họ tên *</span>
+                      </div>
+                      <input id="name-input" type="text" />
+                      <p id="name-notice" style="display: none; color: red">
+                        Bạn chưa nhập họ tên!
+                      </p>
+                    </div>
+                    <div class="input-box">
+                      <div class="label-input">
+                        <img src="./images/phone.svg" alt="people svg" />
+                        <span class="details">Số điện thoại *</span>
+                      </div>
+                      <input id="phone-input" type="number" />
+                      <p id="phone-notice" style="display: none; color: red">
+                        Bạn chưa nhập số điện thoại!
+                      </p>
+                    </div>
+                    <div class="input-box">
+                      <div class="label-input">
+                        <img src="./images/mail.svg" alt="people svg" />
+                        <span class="details">Email *</span>
+                      </div>
+                      <input id="mail-input" type="text" />
+                      <p id="mail-notice" style="display: none; color: red">
+                        Bạn chưa nhập email!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="mode-details">
+                    <div class="category">
+                      <label>
+                        <input
+                          style="cursor: pointer"
+                          type="checkbox"
+                          name="mode"
+                          id="mode1-checkbox"
+                          onclick="onRemoveChecked2(), this.checked=true"
+                        />
+                        <span class="mode">Gói học 1 năm</span>
+                      </label>
+                      <label>
+                        <input
+                          style="cursor: pointer"
+                          type="checkbox"
+                          name="mode"
+                          id="mode2-checkbox"
+                          onclick="onRemoveChecked1(), this.checked=true"
+                        />
+                        <span class="mode">Gói trọn đời</span>
+                      </label>
+                    </div>
+                    <span
+                      id="pay-mode"
+                      style="font-size: 17px; display: none; color: red"
+                      >Bạn hãy chọn gói thanh toán!</span
+                    >
+                  </div>
+                  <p
+                    id="pay-year"
+                    style="display: none; color: #06bae8; font-size: 50px"
+                  >
+                    995.00 VND
+                  </p>
+                  <p
+                    id="pay-one"
+                    style="display: none; color: #06bae8; font-size: 50px"
+                  >
+                    1.995.000 VND
+                  </p>
+                  <div class="button">
+                    <input
+                      type="submit"
+                      value="ĐĂNG KÝ NGAY"
+                      id="register-button"
+                      onclick="onCheckDataButtonClick()"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- section2 register section end -->
+
+    <!-- section3 progress section start -->
+
+    <section id="section3" class="section section3">
+      <div class="container">
+        <div class="section3-title">
+          <h2 class="heading">cá nhân hoá lộ trình hoá học</h2>
+          <p>Làm bài kiểm tra đầu vào với ELSA trong 5 phút và bạn sẽ có:</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="image">
+              <img src="./images/section-02-1.png.webp" alt="mobile-app1" />
+            </div>
+            <div class="content">
+              <p>
+                Trí tuệ nhân tạo trả về bạn số điểm
+                <b>“CHUẨN BẢN XỨ"</b>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="image">
+              <img src="./images/section-02-2.png.webp" alt="mobile-app2" />
+            </div>
+            <div class="content">
+              <p>
+                <b>NGAY LẬP TỨC</b>", bạn biết mình phát âm sai ở đâu qua những
+                gam màu trực quan sinh động."
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="image">
+              <img src="./images/section-02-3.png.webp" alt="mobile-app3" />
+            </div>
+            <div class="content">
+              <p>
+                <b>CÔNG NGHỆ NHẬN DIỆN</b>" giọng nói chuẩn đến từng âm tiết."
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="image">
+              <img src="./images/section-02-4.png.webp" alt="mobile-app4" />
+            </div>
+            <div class="content">
+              <p>
+                "ELSA sẽ "<b>LẬP LỘ TRÌNH HỌC CÁ NHÂN HOÁ</b>" dựa trên các chỉ
+                số bài kiểm tra đầu vào của bạn."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#section2" class="button-sc3">
+          <div class="button">đăng ký ngay</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- section3 progress section end -->
+
+    <!-- page load register succeeded -->
+      <div class="loader-container hidden" >
+        <div class="noti">Chúc mừng bạn đã đăng ký <br> thành công
+      </div>
+    <script src="script.js"></script>
+  </body>
+</html>

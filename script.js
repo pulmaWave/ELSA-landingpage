@@ -56,6 +56,8 @@ function onCheckDataButtonClick() {
   ) {
     // alert("Đăng ký thành công!")
     window.onload = fadeOut()
+  } else if (!onValidEmail(GET_ELEMENT_INPUT_MAIL_VALID.value)) {
+     GET_ELEMENT_NOTICE_MAIL_VALID.style.display = 'block'
   }
 }
 

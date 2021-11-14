@@ -14,6 +14,7 @@ function onCheckDataButtonClick() {
   const GET_ELEMENT_INPUT_NAME_VALID = document.getElementById('name-input')
   const GET_ELEMENT_INPUT_PHONE_VALID = document.getElementById('phone-input')
   const GET_ELEMENT_INPUT_MAIL_VALID = document.getElementById('mail-input')
+
   // console.log(GET_ELEMENT_INPUT_NAME_VALID.value)
   // console.log(GET_ELEMENT_INPUT_PHONE_VALID.value)
   // console.log(GET_ELEMENT_INPUT_MAIL_VALID.value)
@@ -38,50 +39,24 @@ function onCheckDataButtonClick() {
 
   if (GET_ELEMENT_CHECKBOX1.checked || GET_ELEMENT_CHECKBOX2.checked) {
     GET_ELEMENT_PAYMODE.style.display = 'none'
-  } else if (GET_ELEMENT_CHECKBOX1.checked == false || GET_ELEMENT_CHECKBOX2.checked == false) {
+  } else if (
+    GET_ELEMENT_CHECKBOX1.checked == false ||
+    GET_ELEMENT_CHECKBOX2.checked == false
+  ) {
     GET_ELEMENT_PAYMODE.style.display = 'block'
-  } else {
   }
-  // if (GET_ELEMENT_CHECKBOX1.checked) {
-  //   GET_ELEMENT_PAYMODE.style.display = 'none'
-  // }
-  // if (GET_ELEMENT_CHECKBOX2.checked) {
-  //   GET_ELEMENT_PAYMODE.style.display = 'none'
-  // }
 
   // fill information succeeded
   if (
-    (GET_ELEMENT_CHECKBOX1.checked &&
-      GET_ELEMENT_INPUT_NAME_VALID.value.trim() !== '' &&
-      GET_ELEMENT_INPUT_PHONE_VALID.value.trim() !== '' &&
-      GET_ELEMENT_INPUT_MAIL_VALID.value.trim() !== '') ||
-    (GET_ELEMENT_CHECKBOX2.checked &&
-      GET_ELEMENT_INPUT_NAME_VALID.value.trim() !== '' &&
-      GET_ELEMENT_INPUT_PHONE_VALID.value.trim() !== '' &&
-      GET_ELEMENT_INPUT_MAIL_VALID.value.trim() !== '')
+    (GET_ELEMENT_CHECKBOX1.checked || GET_ELEMENT_CHECKBOX2.checked) &&
+    GET_ELEMENT_INPUT_NAME_VALID.value.trim() !== '' &&
+    GET_ELEMENT_INPUT_PHONE_VALID.value.trim() !== '' &&
+    GET_ELEMENT_INPUT_MAIL_VALID.value.trim() !== '' &&
+    onValidEmail(GET_ELEMENT_INPUT_MAIL_VALID.value)
   ) {
     // alert("Đăng ký thành công!")
     window.onload = fadeOut()
   }
-
-  // if (GET_ELEMENT_INPUT_NAME_VALID.value.trim() === '') {
-  //   const pNode = document.createElement('p')
-  //   const text = document.createTextNode('Bạn chưa nhập tên!')
-  //   pNode.appendChild(text) // append text to p tag
-  //   document.getElementById('name-notice').pNode // append p tag to dom with id
-  // }
-  // if (GET_ELEMENT_INPUT_PHONE_VALID.value.trim() === '') {
-  //   const pNode = document.createElement('p')
-  //   const text = document.createTextNode('Bạn chưa số điện thoại!')
-  //   pNode.appendChild(text)
-  //   document.getElementById('phone-notice').pNode
-  // }
-  // if (GET_ELEMENT_INPUT_MAIL_VALID.value.trim() === '') {
-  //   const pNode = document.createElement('p')
-  //   const text = document.createTextNode('Bạn chưa nhập email!')
-  //   pNode.appendChild(text)
-  //   document.getElementById('email-notice').pNode
-  // }
 }
 
 // click checkbox to remove the other one
@@ -146,29 +121,46 @@ function onTypingInput() {
   GET_ELEMENT_INPUT_PHONE_VALID.addEventListener('input', function () {
     GET_ELEMENT_NOTICE_PHONE_VALID.style.display = 'none'
   })
-  GET_ELEMENT_INPUT_MAIL_VALID.addEventListener('input', function (e) {
-    GET_ELEMENT_NOTICE_MAIL_VALID.style.display = 'none'
-  })
+  GET_ELEMENT_INPUT_MAIL_VALID.addEventListener('input', updateValue)
 }
 
 onTypingInput()
 
+// update value inputconsole.log(GET_ELEMENT_NOTICE_MAIL_VALID.textContent)
+function updateValue(e) {
+  const GET_ELEMENT_NOTICE_MAIL_VALID = document.getElementById('mail-notice')
+
+  if (onValidEmail(e.target.value)) {
+    GET_ELEMENT_NOTICE_MAIL_VALID.style.display = 'none'
+  }
+}
+
 //valid email
 function onValidEmail(email) {
+  const GET_ELEMENT_NOTICE_MAIL_VALID = document.getElementById('mail-notice')
+
+  // GET_ELEMENT_NOTICE_MAIL_VALID.style.display = 'block'
+  if (email.trim() === '') {
+    console.log('a')
+    // GET_ELEMENT_NOTICE_MAIL_VALID.style.display = 'block'
+    GET_ELEMENT_NOTICE_MAIL_VALID.textContent = 'Bạn chưa nhập email!'
+  } else {
+    GET_ELEMENT_NOTICE_MAIL_VALID.textContent = 'Email chưa đúng định dạng!'
+    // GET_ELEMENT_NOTICE_MAIL_VALID.style.display = 'block'
+  }
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   return re.test(String(email).toLowerCase())
 }
 
 function loader() {
-
   //show notification message to presentation register succeeded
   document.querySelector('.loader-container').classList.remove('hidden')
 
   // hidden message
-  setInterval(() => {
+  setTimeout(() => {
     document.querySelector('.loader-container').classList.add('hidden')
-  }, 3000);
+  }, 3000)
 }
 
 function fadeOut() {

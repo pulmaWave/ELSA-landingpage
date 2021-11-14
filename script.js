@@ -15,10 +15,6 @@ function onCheckDataButtonClick() {
   const GET_ELEMENT_INPUT_PHONE_VALID = document.getElementById('phone-input')
   const GET_ELEMENT_INPUT_MAIL_VALID = document.getElementById('mail-input')
 
-  // console.log(GET_ELEMENT_INPUT_NAME_VALID.value)
-  // console.log(GET_ELEMENT_INPUT_PHONE_VALID.value)
-  // console.log(GET_ELEMENT_INPUT_MAIL_VALID.value)
-
   if (GET_ELEMENT_INPUT_NAME_VALID.value.trim() === '') {
     GET_ELEMENT_NOTICE_NAME_VALID.style.display = 'block'
   } else {
@@ -128,7 +124,7 @@ function onTypingInput() {
 
 onTypingInput()
 
-// update value inputconsole.log(GET_ELEMENT_NOTICE_MAIL_VALID.textContent)
+// update value input
 function updateValue(e) {
   const GET_ELEMENT_NOTICE_MAIL_VALID = document.getElementById('mail-notice')
 
@@ -143,7 +139,6 @@ function onValidEmail(email) {
 
   // GET_ELEMENT_NOTICE_MAIL_VALID.style.display = 'block'
   if (email.trim() === '') {
-    console.log('a')
     // GET_ELEMENT_NOTICE_MAIL_VALID.style.display = 'block'
     GET_ELEMENT_NOTICE_MAIL_VALID.textContent = 'Bạn chưa nhập email!'
   } else {
